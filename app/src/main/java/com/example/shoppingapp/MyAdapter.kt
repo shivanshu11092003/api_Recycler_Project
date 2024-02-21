@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
-class MyAdapter(val context :Activity,val persondata : List<User>):
+class MyAdapter(val context :Activity,private val persondata : List<User>):
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
@@ -38,11 +38,18 @@ class MyAdapter(val context :Activity,val persondata : List<User>):
 
 
     }
-    class MyViewHolder(val itemview : View):RecyclerView.ViewHolder(itemview) {
-        val name = itemview.findViewById<TextView>(R.id.Entername)
-        val id= itemview.findViewById<TextView>(R.id.Enterid)
-        val personimage =itemview.findViewById<ShapeableImageView>(R.id.shapeableImageView)
-        val lastname=itemview.findViewById<TextView>(R.id.Enterlastname)
+    class MyViewHolder(itemview : View):RecyclerView.ViewHolder(itemview) {
+        val name : TextView
+        val id :TextView
+        val personimage : ShapeableImageView
+        val lastname :TextView
+        init {
+            name=itemview.findViewById(R.id.Entername)
+            id=itemview.findViewById(R.id.Enterid)
+            personimage=itemview.findViewById(R.id.shapeableImageView)
+            lastname=itemview.findViewById(R.id.Enterlastname)
+
+        }
 
 
 
